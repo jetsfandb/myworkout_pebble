@@ -1,6 +1,6 @@
 // A public URL to your configuration HTML file. 
 // You can use a service like GitHub Pages or Dropbox.
-var configUrl = 'https://example.com/your-config-page.html';
+var configUrl = 'https://github.com/jetsfandb/myworkout_pebble/blob/main/src/pkjs/config.html';
 
 // Listen for when the watchface is opened
 Pebble.addEventListener('ready', function() {
