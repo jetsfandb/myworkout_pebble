@@ -20,6 +20,8 @@
     <div class="form-row">
       <label for="workoutName">Workout Name:</label>
       <input type="text" id="workoutName" placeholder="Enter workout name">
+      <label for="workoutRest">Workout Rest (seconds):</label>
+      <input type="number" id="workoutRest" placeholder="Enter workout rest">
     </div>
 
     <div id="exerciseList"></div>
@@ -35,6 +37,7 @@
       // Load and apply settings from localStorage
       var config = JSON.parse(localStorage.getItem('workoutConfig')) || {
         workoutName: '',
+        workoutRest: 0,
         exercises: []
       };
       
@@ -154,6 +157,10 @@
         config.workoutName = event.target.value;
       });
 
+      document.getElementById('workoutRest').addEventListener('input', function(event) {
+        config.workoutRest = parseInt(event.target.value) || 0;
+      });
+      
       // Handle form submission
       form.addEventListener('submit', function(event) {
         event.preventDefault();
