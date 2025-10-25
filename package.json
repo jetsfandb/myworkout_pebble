@@ -32,10 +32,10 @@
           "name": "CHECKMARK",
           "file": "25px_Checkmark.png"
         }
-      ],
+      ]
+    },
       "capabilities": [
         "configurable"
       ]
-    }
   }
 }
