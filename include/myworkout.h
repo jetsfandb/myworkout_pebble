@@ -6,6 +6,7 @@ static void myworkout_window_appear(Window *window);
 static void myworkout_window_unload(Window *window);
 static void myworkout_init(void);
 static void myworkout_deinit(void);
+static void inbox_received_handler(DictionaryIterator *iter, void *context);
 static void exercise_selected(int index, void* context);
 static void exercise_window_load(Window *window);
 static void exercise_set_click_config_provider(void *context);

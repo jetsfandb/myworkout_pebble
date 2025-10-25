@@ -1,6 +1,6 @@
 {
   "name": "myworkout",
-  "author": "MakeAwesomeHappen",
+  "author": "David Brenner",
   "version": "1.0.0",
   "keywords": [
     "pebble-app"
@@ -32,6 +32,9 @@
           "name": "CHECKMARK",
           "file": "25px_Checkmark.png"
         }
+      ],
+      "capabilities": [
+        "configurable"
       ]
     }
   }

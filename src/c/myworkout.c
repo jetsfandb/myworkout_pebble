@@ -47,10 +47,12 @@ static void myworkout_init(void) {
   s_font = fonts_get_system_font(FONT_KEY_GOTHIC_18);
   s_bold_font = fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD);
   s_checkmark_image = gbitmap_create_with_resource(RESOURCE_ID_CHECKMARK);
+  
   workout = NULL;
   workout_init(&workout, "My Workout");
   workout_load(workout);
   build_exercise_list();
+  
   window_set_window_handlers(s_myworkout_window, (WindowHandlers) {
     .load = myworkout_window_load,
     .appear = myworkout_window_appear,
@@ -61,6 +63,10 @@ static void myworkout_init(void) {
     .load = exercise_window_load,
     .unload = exercise_window_unload,
   });
+
+  app_message_register_inbox_received(inbox_received_handler);
+  app_message_open(128, 128);
+
   const bool animated = true;
   window_stack_push(s_myworkout_window, animated);
 }
@@ -86,6 +92,31 @@ static void myworkout_window_appear(Window *window) {
 static void myworkout_window_unload(Window *window) {
   simple_menu_layer_destroy(s_menu_layer);
   gbitmap_destroy(s_checkmark_image);
+}
+
+static void inbox_received_handler(DictionaryIterator *iter, void *context) {
+  // Read the number of names to process
+  // Tuple *num_names_tuple = dict_find(iter, MESSAGE_KEY_NUM_NAMES);
+  // int num_names = num_names_tuple ? (int)num_names_tuple->value->int32 : 0;
+  
+  // // Clamp the number of names to the maximum supported
+  // if (num_names > MAX_NAMES) {
+  //   num_names = MAX_NAMES;
+  // }
+
+  // // Clear all text layers
+  // for (int i = 0; i < MAX_NAMES; i++) {
+  //   text_layer_set_text(s_text_layers[i], "");
+  // }
+
+  // // Loop through and find the names
+  // for (int i = 0; i < num_names; i++) {
+  //   Tuple *name_tuple = dict_find(iter, MESSAGE_KEY_NAME_0 + i);
+  //   if (name_tuple) {
+  //     snprintf(s_name_buffers[i], MAX_NAME_LENGTH, "Name %d: %s", i + 1, name_tuple->value->cstring);
+  //     text_layer_set_text(s_text_layers[i], s_name_buffers[i]);
+  //   }
+  // }
 }
 
 static void build_exercise_list() {
