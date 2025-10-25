@@ -1,0 +1,38 @@
+{
+    "displayName": "myworkout",
+    "uuid": "07ecb6ab-ba4c-4b4c-a9cc-251d104a1153",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+        "aplite",
+        "basalt",
+        "chalk",
+        "diorite",
+        "emery",
+        "flint"
+    ],
+    "watchapp": {
+        "watchface": false
+    },
+    "messageKeys": {
+        "dummy": 10000
+    },
+    "resources": {
+        "media": [
+            {
+                "type": "bitmap",
+                "name": "CHECKMARK",
+                "file": "25px_Checkmark.png"
+            }
+        ]
+    },
+    "name": "myworkout",
+    "shortName": "myworkout",
+    "longName": "myworkout",
+    "versionLabel": "1.0",
+    "companyName": "MakeAwesomeHappen",
+    "appKeys": {
+        "dummy": 10000
+    },
+    "capabilities": []
+}
