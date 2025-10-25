@@ -15,6 +15,7 @@ Pebble.addEventListener('showConfiguration', function() {
 
 // Listen for when the configuration page is closed
 Pebble.addEventListener('webviewclosed', function(e) {
+  console.log('webviewclosed');
   var configData;
   if (e.response) {
     // Decode the data from the HTML form
