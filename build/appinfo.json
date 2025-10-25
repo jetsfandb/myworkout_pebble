@@ -15,7 +15,8 @@
         "watchface": false
     },
     "messageKeys": {
-        "dummy": 10000
+        "WORKOUT_NAME": 0,
+        "WORKOUT_DATA": 1    
     },
     "resources": {
         "media": [
@@ -24,7 +25,12 @@
                 "name": "CHECKMARK",
                 "file": "25px_Checkmark.png"
             }
-        ]
+        ],
+        "js": {
+            "pkjs": [
+                "src/pkjs/index.js"
+            ]
+        }
     },
     "name": "myworkout",
     "shortName": "myworkout",
@@ -34,5 +40,7 @@
     "appKeys": {
         "dummy": 10000
     },
-    "capabilities": []
+    "capabilities": [
+        "configurable"
+    ]
 }
