@@ -33,6 +33,14 @@
   </form>
 
   <script>
+    const saveSettingsEvent = new CustomEvent('savessettings', {
+       detail: {
+         message: 'Settings saved'
+        },
+        bubbles: true,
+        cancelable: false
+    });
+    
     document.addEventListener('DOMContentLoaded', function() {
       // Load and apply settings from localStorage
       var config = JSON.parse(localStorage.getItem('workoutConfig')) || {
@@ -176,6 +184,7 @@
         } else {
           // For native SDK: let index.js handle the closing logic
           // The data is saved to localStorage for index.js to pick up
+          window.dispatchEvent(saveSettingsEvent);
           window.close();
         }
       });

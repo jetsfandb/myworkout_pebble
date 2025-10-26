@@ -14,7 +14,8 @@ Pebble.addEventListener('showConfiguration', function() {
 });
 
 // Listen for when the configuration page is closed
-Pebble.addEventListener('webviewclosed', function(e) {
+//Pebble.addEventListener('webviewclosed', function(e) {
+Pebble.addEventListener('savessettings', function(e) {
   console.log('webviewclosed');
   var configData;
   if (e.response) {
