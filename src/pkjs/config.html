@@ -33,14 +33,6 @@
   </form>
 
   <script>
-    const saveSettingsEvent = new CustomEvent('savessettings', {
-       detail: {
-         message: 'Settings saved'
-        },
-        bubbles: true,
-        cancelable: false
-    });
-    
     document.addEventListener('DOMContentLoaded', function() {
       // Load and apply settings from localStorage
       var config = JSON.parse(localStorage.getItem('workoutConfig')) || {
@@ -181,14 +173,15 @@
 
         var location_hash = '#' + encodeURIComponent(JSON.stringify(config));
 
-        if (returnTo) {
+        document.location.href = 'pebblejs://close' + location.hash;
+//        if (returnTo) {
           // For CloudPebble: send data back via URL
-          document.location.href = returnTo + '#appcfg=' + encodeURIComponent(JSON.stringify(config));
-        } else {
+//          document.location.href = returnTo + '#appcfg=' + encodeURIComponent(JSON.stringify(config));
+//        } else {
           // For native SDK: let index.js handle the closing logic
           // The data is saved to localStorage for index.js to pick up
-          document.location.href = 'pebblejs://close' + location.hash;
-        }
+//          document.location.href = 'pebblejs://close' + location.hash;
+//        }
       });
 
       function getQueryParam(name) {
