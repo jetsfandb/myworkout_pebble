@@ -16,12 +16,11 @@ function saveSettings() {
   // Save settings to localStorage if needed
   // This function can be expanded based on specific requirements
   console.log('Saving settings (if needed)'); 
-}
-
   Pebble.sendAppMessage(dict,
     function() { console.log('[JS] Settings update message sent successfully'); },
     function(e) { console.log('[JS] Settings update message failed: ' + JSON.stringify(e)); }
   );
+}
 
 // Listen for when the watchface is opened
 Pebble.addEventListener('ready', function() {
@@ -52,7 +51,7 @@ Pebble.addEventListener('showConfiguration', function() {
   </style>
 </head>
 <body>
-  <h1>Workout Config</h1>
+  <h1>Workout Config App/JS</h1>
 
   <form id="configForm">
     <div class="form-row">
@@ -273,14 +272,8 @@ Pebble.addEventListener('webviewclosed', function(e) {
       dict.ExerciseCount = 0;
     }
 
-    saveSettings();
     // 3. Send the flattened dictionary to the watch
-    Pebble.sendAppMessage(dict, function(e) {
-      console.log('Config data sent successfully!');
-    }, function(e) {
-      console.log('Error sending config data: ' + JSON.stringify(e));
-    });
-    
+    saveSettings();
   } else {
     console.log('Configuration cancelled.');
   }
