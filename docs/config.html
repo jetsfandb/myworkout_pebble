@@ -174,17 +174,18 @@
         event.preventDefault();
         
         // Save the updated configuration to localStorage
-        localStorage.setItem('workoutConfig', JSON.stringify(config));
+        var workout_data = {"workout" : config};
+        localStorage.setItem('workoutConfig', JSON.stringify(workout_data));
 
         // Get the return_to URL parameter for CloudPebble
         var returnTo = getQueryParam('return_to');
 
-        var location_hash = '#' + encodeURIComponent(JSON.stringify(config));
+        var location_hash = '#' + encodeURIComponent(JSON.stringify(workout_data));
 
 //        document.location.href = 'pebblejs://close' + location.hash;
         if (returnTo) {
           // For CloudPebble: send data back via URL
-          document.location.href = returnTo + '#appcfg=' + encodeURIComponent(JSON.stringify(config));
+          document.location.href = returnTo + '#appcfg=' + encodeURIComponent(JSON.stringify(workout_data));
         } else {
           // For native SDK: let index.js handle the closing logic
           // The data is saved to localStorage for index.js to pick up
