@@ -181,15 +181,15 @@
 
         var location_hash = '#' + encodeURIComponent(JSON.stringify(config));
 
-        document.location.href = 'pebblejs://close' + location.hash;
-//        if (returnTo) {
+//        document.location.href = 'pebblejs://close' + location.hash;
+        if (returnTo) {
           // For CloudPebble: send data back via URL
-//          document.location.href = returnTo + '#appcfg=' + encodeURIComponent(JSON.stringify(config));
-//        } else {
+          document.location.href = returnTo + '#appcfg=' + encodeURIComponent(JSON.stringify(config));
+        } else {
           // For native SDK: let index.js handle the closing logic
           // The data is saved to localStorage for index.js to pick up
-//          document.location.href = 'pebblejs://close' + location.hash;
-//        }
+          document.location.href = 'pebblejs://close' + location.hash;
+        }
       });
 
       function getQueryParam(name) {
